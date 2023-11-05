@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Portfolio Webpage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bce846cfd9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="book-Reco.html">Books</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <h1>Hi, I'm Sebastian<br>from Vienna</h1>
+        </div>
+    </div>
+</div>
+<!-----------------about-------------------->
+<div id="about">
+    <div class="container">
+        <h1 class="sub-title">About Me</h1>
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/user.jpg">
+            </div>
+            <div class="about-col-2"> 
+                    <p>
+                        Hi, I'm Sebastian a passionate programmer, dancer and learner.
+                    </p>
+                <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div> 
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming</span><br>HTML, CSS, JavaScript
+                            </li>
+                            <li><span>Languages</span><br>English, Spanish, Polish
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2012 - 2012</span><br>New Zealand<br>Going to High School
+                            </li>
+                            <li><span>2017 - 2017</span><br>Frankfurt<br>Tourism Salesman at American Express Int. Inc
+                            </li>
+                            <li><span>2017 - 2020</span><br>Vienna<br>Tourism Salesman at American Express Int. Inc 
+                            </li>
+                            <li><span>2020 - 2020</span><br>New Zealand<br>Work and Travel
+                            </li>
+                            <li><span>2022 - Now</span><br>Vienna <br>Team Leader at Pro Staff (Catering)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Primary School</span><br>Riedschule Flörsheim
+                            <li><span>High School</span><br>Graf Stauffenberg Gymnasium Flörsheim
+                            </li>
+                            <li><span>Apprenticeship</span><br>American Express Int. Inc Frankfurt am Main
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------------Events---------------->
+
+<div id="events">
+    <div class="container">
+        <h1 class="sub-title">My Events</h1>
+        <div class="services-list">
+            <div class="book-club">
+                <i class="fa-solid fa-book"></i>               
+                <h2>Social Book Club</h2>
+                <p>Meet readers to share or listen to new book content every Friday at 7pm at Cafe Phil Vienna.</p>
+                <a href="https://www.meetup.com/vienna-book-club/">Join</a>
+            </div>
+            <div class="coding-club">
+                <i class="fa-solid fa-laptop"></i>
+                <h2>Coding Club</h2>
+                <p>Code together and get to know new people every Sunday at 1 pm at Cafe Freiraum Vienna</p>
+                <a href="https://www.meetup.com/coding-club-vienna/">Join</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------Books-------------->
+
+<div id="books">
+   
+</div>
+
+<!----------------------Contact--------------------->
+
+<div id="contact">
+    <div class="container">
+        <h1 class="sub-title">Contact Me</h1>
+        <div class="row">
+            <div class="contact-left">
+                <p><i class="fa-regular fa-paper-plane"></i></p>
+                <p><i class="fa-solid fa-phone"></i>0043 677 64846608</p>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright Sebastian. Made with <i class="fa-solid fa-heart"></i> by Easy Tutorials</p>
+    </div>
+</div>
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px"
+    }
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxiJZvRkCDVvxeJ49S8iAfRWPfAxV8IsVpR0KyRHazPiPHXA2rKXFtYMdpZWDr8CmkmSg/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
