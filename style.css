@@ -285,23 +285,12 @@ nav ul li a:hover::after{
 
 /*-----Projects----------*/
 
-.java-script {
+.java-script{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
-    width: 50%;
-}
-
-.color-flipper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-    width: 50%;
-}
-
-.color-flipper{
+    width: 40%;
     background: #E5E4E2;
     padding: 40px;
     font-size: 13px;
@@ -309,6 +298,41 @@ nav ul li a:hover::after{
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
 }
+
+.java-script h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.java-script i{
+    font-size: 50px;
+}
+
+.color-flipper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+    width: 40%;
+    background: #E5E4E2;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+
+.color-flipper i{
+    font-size: 50px;
+}
+
+.color-flipper h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
 
 /*----------Contact--------*/
 
